@@ -120,32 +120,17 @@ class API {
 
       http.get(requestOptions, (err, res, resp) => {
       let endres = JSON.parse(resp)
-      let inc = ""
-      if(endres.metadata.reason == "Account Creation Ok") {
-      let output_meta = endres.metadata.output.raw;
-            var subs = output_meta.substring(output_meta.toString().indexOf("+===================================+")); //substr = 'Pick Only Account Info'
-            let ditzz = substr.split("| Language: en")[0];
-            let datas  = endres.data
-            inc = { 
-            status: true,
-            data: datas,
-            information: ditzz
-            }
-            } else {
-            inc = endres
-            }
         if(err) {
           console.error('Error');
           reject({error: err});
         } else if(!endres.metadata.result) {
           reject({error: endres.metadata.reason});
         }        
-        else resolve(inc);
+        else resolve(endres);
       });
 
     });
   }
-
 }
 
 class Utils {

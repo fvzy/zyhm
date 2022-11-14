@@ -1,6 +1,6 @@
 {
   "name": "zyhm",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "WHM (Web Host Manager) API 1 Wrapper for NodeJS",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
