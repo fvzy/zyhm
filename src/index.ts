@@ -1,5 +1,12 @@
 import * as http from 'request';
 import { merge } from 'lodash';
+import chalk from 'chalk'
+const color = (text, color) => {
+    return !color ? chalk.green(text) : chalk.keyword(color)(text)
+}
+const bgcolor = (text, bgcolor) => {
+	return !bgcolor ? chalk.green(text) : chalk.bgKeyword(bgcolor)(text)
+}
 
 http.defaults({
   encoding: 'utf-8',
@@ -115,20 +122,20 @@ class API {
         Authorization: 'WHM ' + this.options.username + ':' + this.options.remoteAccessKey
       }
     };
-    console.log(requestOptions);
     return new Promise<any>((resolve, reject) => {
-
       http.get(requestOptions, (err, res, resp) => {
       let endres = JSON.parse(resp)
+console.log(color('', 'cyan'), color(`
+▀█ █▄█ █░█ █▀▄▀█
+█▄ ░█░ █▀█ █░▀░█
+console.log(color('======================', 'fuchsia'),color('\n[ Made With ♥️ By Ditzzsenpai\nFolow Me On : \ninstagram : @zyfn.dev\nGithub : @wffzy \nWhatsapp : 08988293493\n I hove You Enjoy with this library  ]', 'pink'),color('\n======================', 'fuchsia'))
         if(err) {
-          console.error('Error');
           reject({error: err});
         } else if(!endres.metadata.result) {
           reject({error: endres.metadata.reason});
         }        
         else resolve(endres);
       });
-
     });
   }
 }

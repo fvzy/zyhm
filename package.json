@@ -20,13 +20,14 @@
   "homepage": "https://github.com/wffzy/zyhm#readme",
   "dependencies": {
     "lodash": "^4.17.2",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.43",
     "@types/node": "^6.0.52",
     "@types/request": "0.0.36",
-    "typescript": "^2.1.4"
+    "typescript": "^2.1.4",
   },
   "keywords": [
     "Zyhm"
