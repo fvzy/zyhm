@@ -1,12 +1,8 @@
 import * as http from 'request';
 import { merge } from 'lodash';
-import chalk from 'chalk'
-const color = (text, color) => {
-    return !color ? chalk.green(text) : chalk.keyword(color)(text)
-}
-const bgcolor = (text, bgcolor) => {
-	return !bgcolor ? chalk.green(text) : chalk.bgKeyword(bgcolor)(text)
-}
+import Logger from "@ptkdev/logger"
+const ingfokan = new Logger();
+
 
 http.defaults({
   encoding: 'utf-8',
@@ -124,11 +120,8 @@ class API {
     };
     return new Promise<any>((resolve, reject) => {
       http.get(requestOptions, (err, res, resp) => {
+        
       let endres = JSON.parse(resp)
-console.log(color('', 'cyan'), color(`
-▀█ █▄█ █░█ █▀▄▀█
-█▄ ░█░ █▀█ █░▀░█
-console.log(color('======================', 'fuchsia'),color('\n[ Made With ♥️ By Ditzzsenpai\nFolow Me On : \ninstagram : @zyfn.dev\nGithub : @wffzy \nWhatsapp : 08988293493\n I hove You Enjoy with this library  ]', 'pink'),color('\n======================', 'fuchsia'))
         if(err) {
           reject({error: err});
         } else if(!endres.metadata.result) {
@@ -159,7 +152,7 @@ class Utils {
       if(qs.length > 0) qs += '&';
       qs += encodeURIComponent(prop) + '=' + encodeURIComponent(object[prop]);
     }
-    console.log(object);
+    ingfokan.sponsor('======================\n[ Made With ♥️ By Ditzzsenpai\nFolow Me On\ninstagram : @zyfn.dev\nGithub : @wffzy \nWhatsapp : 08988293493\n I hove You Enjoy with this library  ]\n======================')
     console.log(qs);
     return qs;
   }
