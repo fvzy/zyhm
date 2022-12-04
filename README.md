@@ -16,7 +16,12 @@ Recoded and fixing outlog from : [`@ihadeed/node-whm`](https://github.com/ihadee
 
 
 ### Instalation
+<code>GITHUB</code>
+```bash
+npm i git+github.com/wffzy/zyhm
+```
 
+<code>NPM</code>
 ```bash
 npm i zyhm
 ```
